@@ -22,6 +22,15 @@
                 </args>
             </gaiterjones_gdpr>
         </routers>
+		<translate>
+			<modules>
+				<Gaiterjones_GDPR>
+					<files>
+						<default>Gaiterjones_GDPR.csv</default>
+					</files>
+				</Gaiterjones_GDPR>
+			</modules>
+		</translate>
     </frontend>
     <admin>
         <routers>
@@ -63,12 +72,12 @@
         <template>
             <email>
                 <gaiterjones_gdpr_confirm translate="label" module="gaiterjones_gdpr">
-                    <label>ZERO-1 GDPR Confirm</label>
+                    <label>Gaiterjones GDPR Confirm</label>
                     <file>gaiterjones/gdpr/confirm.html</file>
                     <type>html</type>
                 </gaiterjones_gdpr_confirm>
                 <gaiterjones_gdpr_success translate="label" module="gaiterjones_gdpr">
-                    <label>ZERO-1 GDPR Success</label>
+                    <label>Gaiterjones GDPR Success</label>
                     <file>gaiterjones/gdpr/success.html</file>
                     <type>html</type>
                 </gaiterjones_gdpr_success>

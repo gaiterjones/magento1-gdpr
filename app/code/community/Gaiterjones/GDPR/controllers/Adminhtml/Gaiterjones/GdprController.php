@@ -9,17 +9,23 @@ class Gaiterjones_GDPR_Adminhtml_Gaiterjones_GdprController extends Mage_Adminht
             return;
         }
 
-        $customer = Mage::getModel('customer/customer')->load($this->getRequest()->getParam('id'));
-        if (!$customer->getId()) {
-            Mage::getSingleton('core/session')->addError('No customer ID provided.');
-            $this->_redirect('adminhtml/dashboard/index');
+        if (!Mage::helper('gaiterjones_gdpr')->debugMode())
+        {
+            $customer = Mage::getModel('customer/customer')->load($this->getRequest()->getParam('id'));
+            if (!$customer->getId()) {
+                Mage::getSingleton('core/session')->addError('No customer ID provided.');
+                $this->_redirect('adminhtml/dashboard/index');
+                return;
+            }
+
+            Mage::getModel('gaiterjones_gdpr/accountdeletion')->anonymiseCustomer($customer);
+            $this->_redirect('adminhtml/customer/index');
+            Mage::getSingleton('core/session')->addSuccess('The account has been successfully deleted, and all orders have been anonymised.');
             return;
         }
 
-        Mage::getModel('gaiterjones_gdpr/accountdeletion')->anonymiseCustomer($customer);
-
         $this->_redirect('adminhtml/customer/index');
-        Mage::getSingleton('core/session')->addSuccess('The account has been successfully deleted, and all orders have been anonymised.');
+        Mage::getSingleton('core/session')->addSuccess('GDPR DEBUG MODE Account Deletion Test!');
         return;
     }
 
@@ -27,6 +33,7 @@ class Gaiterjones_GDPR_Adminhtml_Gaiterjones_GdprController extends Mage_Adminht
      * Send anonymise email admin action
      */
     public function sendAnonymiseEmailAction() {
+
         if (!Mage::helper('gaiterjones_gdpr')->isEnabled()) {
             return;
         }
@@ -39,17 +46,21 @@ class Gaiterjones_GDPR_Adminhtml_Gaiterjones_GdprController extends Mage_Adminht
         }
 
         /** @var Mage_Core_Model_Email_Template $email */
-        $email = Mage::getModel('core/email_template')->loadDefault('gaiterjones_gdpr_confirm');
+        $user = Mage::getSingleton('admin/session');
+        $locale = Mage::app()->getLocale()->getLocaleCode();
+        $email = Mage::getModel('core/email_template')->loadDefault('gaiterjones_gdpr_confirm', $locale);
         if ($email->getId()) {
             $email->sendTransactional($email->getId(), 'sales', $customer->getEmail(), $customer->getName(), array(
                 'email' => $customer->getEmail(),
                 'name' => $customer->getName(),
-                'link' => Mage::getUrl('gaiterjones_gdpr/customer/deleteaccount')
+                'link' => Mage::getUrl('gaiterjones_gdpr/customer/deleteaccount'),
+                'locale' => $locale
             ), 0);
         }
 
         $this->_redirect('adminhtml/customer/edit', array('id' => $customer->getId()));
         Mage::getSingleton('core/session')->addSuccess('Anonymisation email successfully sent.');
+        return;
     }
 
     /**

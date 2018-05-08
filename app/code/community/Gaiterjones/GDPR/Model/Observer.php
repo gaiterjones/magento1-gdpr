@@ -22,7 +22,7 @@ class Gaiterjones_GDPR_Model_Observer
 
         // Delete link
         $location = Mage::helper('adminhtml')->getUrl(
-            'adminhtml/gaiterjones_gdpr/deletecustomer',
+            'adminhtml/Gaiterjones_gdpr/deletecustomer',
             array('id' => $customer->getId())
         );
         $data = array(
@@ -33,7 +33,7 @@ class Gaiterjones_GDPR_Model_Observer
 
         // E-mail link
         $location = Mage::helper('adminhtml')->getUrl(
-            'adminhtml/gaiterjones_gdpr/sendAnonymiseEmail',
+            'adminhtml/Gaiterjones_gdpr/sendAnonymiseEmail',
             array('id' => $customer->getId())
         );
         $data = array(

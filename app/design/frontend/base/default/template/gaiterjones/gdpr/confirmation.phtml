@@ -3,8 +3,22 @@
 </div>
 
 <div>
-    <p>If you proceed to delete your account, all data we hold about you will be destroyed or anonymised. This operation cannot be un-done.</p>
+    <p><?php echo $this->__('If you proceed to delete your account, all data we hold about you will be destroyed or anonymised. This operation cannot be un-done.') ?></p>
     <br>
-    <button type="button" title="<?php echo $this->__('Delete my account') ?>" class="button" onclick="window.location='<?php echo '/gaiterjones_gdpr/customer/deleteaccount/' ?>';"><span><span><?php echo $this->__('Delete my account') ?></span></span></button>
+    <button type="button" title="<?php echo $this->__('Delete my account') ?>" class="button" onclick="deleteAccountConfirmation();"><span><span><?php echo $this->__('Delete my account') ?></span></span></button>
 </div>
-
+<script>
+//<![CDATA[
+    function deleteAccountConfirmation()
+    {
+        var input = confirm('<?php echo $this->__('Are you sure?') ?>');
+        if (input == true) {
+            //ok
+            //alert('Account deleted!');
+            window.location='<?php echo '/gaiterjones_gdpr/customer/deleteaccount/' ?>';
+        } else {
+            //cancel
+        }
+    }
+//]]>
+</script>

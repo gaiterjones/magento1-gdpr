@@ -2,7 +2,7 @@
 <config>
     <sections>
         <gaiterjones_gdpr translate="label" module="gaiterjones_gdpr">
-            <label>ZERO-1 GDPR</label>
+            <label>GDPR</label>
             <tab>customer</tab>
             <frontend_type>text</frontend_type>
             <sort_order>110</sort_order>
@@ -19,7 +19,7 @@
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
                     <fields>
-                        <enabled translate="label">
+                        <gdprenabled translate="label">
                             <label>Enable Customer Account Deletion / Anonymisation</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
@@ -27,7 +27,7 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>0</show_in_website>
                             <show_in_store>0</show_in_store>
-                        </enabled>
+                        </gdprenabled>
                         <successmessage translate="label">
                             <label>Success message</label>
                             <comment>The message shown to customers on the frontend after deleting their account. (leave blank for default)</comment>
@@ -37,15 +37,6 @@
                             <show_in_website>0</show_in_website>
                             <show_in_store>0</show_in_store>
                         </successmessage>
-                        <cms_page translate="label">
-                            <label>Information Page</label>
-                            <frontend_type>select</frontend_type>
-                            <source_model>adminhtml/system_config_source_cms_page</source_model>
-                            <sort_order>1</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </cms_page>
                         <gtm_container_id translate="label">
                             <label>Google Tag Manager Container ID</label>
                             <comment>By migrating ALL your third party JS including Beacons, Pixel Tracking, you can adhere to the GDPR regulations as this will ONLY load this container and trigger 3rd party cookies once you have obtained 'express consent' from your visitor</comment>
@@ -55,17 +46,102 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </gtm_container_id>
+                        <debugmode translate="label">
+                            <label>Debug Mode</label>
+                            <comment>Debug mode disables account deletion to enable you to test the module.</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>140</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </debugmode>
                     </fields>
                 </configuration>
-                <support>
-                    <label>Support with GDPR</label>
-                    <comment><![CDATA[<p><b>This extension DOES NOT automatically ensure full compliance with GDPR.</b></p><p>If you require support with all aspects of GDPR you can sign-up to a hassle-free package via our legal partner <a href="https://goo.gl/QLh8qR">GDPR Privacy Policy</a></p><iframe width="560" height="315" src="https://www.youtube.com/embed/1mDT-x2XnEg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe><br><H3><a href="https://goo.gl/QLh8qR">Click here to find out more on the GDPR Privacy Policy Compliance Pack</a></h3>]]></comment>
-                    <frontend_type>text</frontend_type>
-                    <sort_order>2</sort_order>
-                    <show_in_default>1</show_in_default>
-                    <show_in_website>1</show_in_website>
-                    <show_in_store>1</show_in_store>
-                </support>
+                <content translate="label" module="gaiterjones_gdpr">
+                        <label>Cookie Alert</label>
+                        <frontend_type>text</frontend_type>
+                        <sort_order>2</sort_order>
+                        <expanded>1</expanded>
+                        <show_in_default>1</show_in_default>
+                        <show_in_website>1</show_in_website>
+                        <show_in_store>1</show_in_store>
+                        <fields>
+                            <show translate="label">
+                                <label>Content</label>
+                                <frontend_type>select</frontend_type>
+                                <sort_order>1</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <source_model>gaiterjones_gdpr/config_message</source_model>
+                            </show>
+                            <custom_message translate="label">
+                                <label>Message text</label>
+                                <frontend_type>text</frontend_type>
+                                <sort_order>2</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <depends>
+                                    <show>custom</show>
+                                </depends>
+                            </custom_message>
+                            <custom_accept translate="label">
+                                <label>Accept text</label>
+                                <frontend_type>text</frontend_type>
+                                <sort_order>3</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <depends>
+                                    <show>custom</show>
+                                </depends>
+                            </custom_accept>
+                            <custom_decline translate="label">
+                                <label>Decline text</label>
+                                <frontend_type>text</frontend_type>
+                                <sort_order>4</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <depends>
+                                    <show>custom</show>
+                                </depends>
+                            </custom_decline>
+                            <custom_more_info translate="label">
+                                <label>More information text</label>
+                                <frontend_type>text</frontend_type>
+                                <sort_order>5</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <depends>
+                                    <show>custom</show>
+                                </depends>
+                            </custom_more_info>
+                            <custom_title_text translate="label">
+                                <label>Title text</label>
+                                <frontend_type>text</frontend_type>
+                                <sort_order>6</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                                <depends>
+                                    <show>custom</show>
+                                </depends>
+                            </custom_title_text>
+                            <cms_page translate="label">
+                                <label>Information Page</label>
+                                <frontend_type>select</frontend_type>
+                                <source_model>adminhtml/system_config_source_cms_page</source_model>
+                                <sort_order>10</sort_order>
+                                <show_in_default>1</show_in_default>
+                                <show_in_website>1</show_in_website>
+                                <show_in_store>1</show_in_store>
+                            </cms_page>
+                        </fields>
+                </content>
             </groups>
         </gaiterjones_gdpr>
     </sections>

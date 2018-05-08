@@ -1,27 +1,26 @@
+<?php $_helper = Mage::helper('gaiterjones_gdpr'); ?>
 <?php
 if(Mage::getStoreConfig('gaiterjones_gdpr/options/enabled'))
 {
-	?>
-<div id="cookiealert" class="cookiealert" style="display: none;">
-	<div class="message">
-		<span class="cookie-title"><?php echo $this->__('Cookie Policy');?></span>
+?>
+<div id="gdprcookiealert" class="gdpr-bar gdpr-dark-clean gdpr-top" style="display: none;">
+	<div class="gdpr-message">
+		<span class="gdpr-title"><?php echo ($_helper->getShow() == 'default') ? $this->__("Cookie Policy") : $_helper->getCustomTitleText(); ?></span>
 		<p>
-	    	<?php echo $this->__('This website uses cookies to ensure proper functionality of the shopping cart and checkout progress. By continuing to browse the site you are agreeing to the use of cookies.');?>
-	    	<a href="<?php echo $this->getCmsPageUrl(); ?>"><?php echo $this->__('Click here to learn about cookie settings.'); ?></a>
+			<?php echo ($_helper->getShow() == 'default') ? $this->__('This site uses cookies and other tracking technologies to assist with navigation and your ability to provide feedback, analyse your use of our products and services, assist with our promotional and marketing efforts, and provide content from third parties.') : $_helper->getCustomMessage(); ?>
 		</p>
-		<p class="accept">
-			<a href="javascript:acceptCookieAlert();"><?php echo $this->__('Accept');?></a>
-		</p>
-		<p class="decline">
-			<a href="javascript:declineCookieAlert();"><?php echo $this->__('Decline');?></a>
-		</p>
+	</div>
+	<div class="gdpr-actions">
+		<a class="gdpr-button gdpr-accept" href="javascript:acceptCookieAlert();">&nbsp;<?php echo ($_helper->getShow() == 'default') ? $this->__("Accept") : $_helper->getCustomAccept(); ?></a>
+		<a class="gdpr-button gdpr-decline" href="javascript:declineCookieAlert();">&nbsp;<?php echo ($_helper->getShow() == 'default') ? $this->__("Decline") : $_helper->getCustomDecline(); ?></a>
+		<a class="gdpr-button" href="<?php echo $this->getCmsPageUrl(); ?>"><?php echo ($_helper->getShow() == 'default') ? $this->__("More information") : $_helper->getCustomMoreInfo(); ?></a>
 	</div>
 </div>
 
 <script type="text/javascript">
 function closeCookieAlert() {
     Mage.Cookies.set('cookieAlertClosedFlag', 1, new Date(new Date().getTime() + (1000 * 60 * 60 * 24 * 364)));
-    document.getElementById('cookiealert').style.display = 'none';
+    document.getElementById('gdprcookiealert').style.display = 'none';
 }
 
 function acceptCookieAlert() {
@@ -44,7 +43,7 @@ if (!empty($gtmContainerId)) {
     script.type = 'text/javascript';
     script.text = 'var Translator = new Translate([]);';
     document.body.appendChild(script);
-    
+
     var gtm_tag = document.createElement('script');
     gtm_tag.type = 'text/javascript';
     gtm_tag.text = '(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({\'gtm.start\':new Date().getTime(),event:\'gtm.js\'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=\'https://www.googletagmanager.com/gtm.js?id=\'+i+dl;f.parentNode.insertBefore(j,f);})(window,document,\'script\',\'dataLayer\',\'<?php echo $gtmContainerId; ?>\');';
@@ -55,7 +54,7 @@ if (!empty($gtmContainerId)) {
 }
 
 if (!Mage.Cookies.get('cookieAlertClosedFlag')) {
-    document.getElementById('cookiealert').style.display = '';
+    document.getElementById('gdprcookiealert').style.display = '';
 }
 
 if (Mage.Cookies.get('cookieAlertState') == 1) {
