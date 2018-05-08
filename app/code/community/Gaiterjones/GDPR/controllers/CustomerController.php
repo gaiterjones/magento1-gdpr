@@ -42,6 +42,7 @@ class Gaiterjones_GDPR_CustomerController extends Mage_Core_Controller_Front_Act
             Mage::getSingleton('core/session')->addSuccess($successMessage);
             return;
         }
+        
         Mage::getSingleton('core/session')->addSuccess('Your account has been successfully deleted, and all order details have been anonymised.');
         return;
     }
