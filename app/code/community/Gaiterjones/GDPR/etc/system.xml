@@ -12,7 +12,7 @@
             <groups>
                 <configuration translate="label">
                     <label>Configuration</label>
-                    <comment><![CDATA[You can configure Google Tag Manager to serve all your 3rd party Javascript includes which will drastically decrease the complexity of adhering to the 'express consent' aspects of cookie policy. For more guidance on setting up Google Tag Manager in this was please review our <a href="https://support.gaiterjones.co.uk/hc/en-us/articles/360000126072">GDPR for Magento WIKI</a>]]></comment>
+                    <comment><![CDATA[You can configure Google Tag Manager to serve all your 3rd party Javascript includes which will drastically decrease the complexity of adhering to the 'express consent' aspects of cookie policy.]]></comment>
                     <frontend_type>text</frontend_type>
                     <sort_order>0</sort_order>
                     <show_in_default>1</show_in_default>
