@@ -85,7 +85,7 @@ class Gaiterjones_GDPR_Model_AccountDeletion
 
         // send notification email
         //
-        $this->sendMailAction($customer,'Account deleted!');
+        $this->sendMailAction($customer);
     }
 
     /**
@@ -102,14 +102,17 @@ class Gaiterjones_GDPR_Model_AccountDeletion
         return null;
     }
 
-    public function sendMailAction($customer,$html){
+    public function sendMailAction($customer){
+
+        $html=$customer->getName(). ' account deleted!';
+        $supportemail=Mage::getStoreConfig('trans_email/ident_support/email');
 
         $mail = Mage::getModel('core/email');
         $mail->setToName('GDPR Module');
-        $mail->setToEmail('paj@vw-e.de');
+        $mail->setToEmail($supportemail);
         $mail->setBody($html);
         $mail->setSubject('Account Deletion');
-        $mail->setFromEmail('admin@vw-e.de');
+        $mail->setFromEmail($supportemail);
         $mail->setFromName("GDPR Module");
         $mail->setType('html');// YOu can use Html or text as Mail format
 
