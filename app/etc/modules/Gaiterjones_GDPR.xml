@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Gaiterjones_GDPR>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Gaiterjones_GDPR>
+    </modules>
+</config>

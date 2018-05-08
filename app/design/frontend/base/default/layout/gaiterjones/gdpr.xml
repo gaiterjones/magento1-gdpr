@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <customer_account>
+        <reference name="customer_account_navigation">
+            <action method="addLink" ifconfig="gaiterjones_gdpr/configuration/gdprenabled">
+                <name>delete</name>
+                <path>gaiterjones_gdpr/customer/deleteconfirmation</path>
+                <label>Delete Account</label>
+            </action>
+        </reference>
+    </customer_account>
+
+    <gaiterjones_gdpr_customer_deleteconfirmation>
+        <update handle="customer_account"/>
+        <reference name="content">
+            <block type="gaiterjones_gdpr/deleteconfirmation" name="deleteconfirmation" template="gaiterjones/gdpr/confirmation.phtml"/>
+            <block type="customer/account_dashboard" name="customer.account.link.back" template="customer/account/link/back.phtml"/>
+        </reference>
+    </gaiterjones_gdpr_customer_deleteconfirmation>
+
+    <default>
+        <reference name="head">
+            <action method="addItem"><type>skin_css</type><name>css/gaiterjones/gdpr/cookiealert.css</name></action>
+        </reference>
+        <reference name="after_body_start">
+            <block type="gaiterjones_gdpr/cookiealert" before="-" name="cookiealert" template="gaiterjones/gdpr/cookiealert.phtml" />
+        </reference>
+    </default>
+</layout>

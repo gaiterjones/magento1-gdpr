@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <gaiterjones_gdpr translate="label" module="gaiterjones_gdpr">
+            <label>ZERO-1 GDPR</label>
+            <tab>customer</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>110</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <configuration translate="label">
+                    <label>Configuration</label>
+                    <comment><![CDATA[You can configure Google Tag Manager to serve all your 3rd party Javascript includes which will drastically decrease the complexity of adhering to the 'express consent' aspects of cookie policy. For more guidance on setting up Google Tag Manager in this was please review our <a href="https://support.gaiterjones.co.uk/hc/en-us/articles/360000126072">GDPR for Magento WIKI</a>]]></comment>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>0</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enable Customer Account Deletion / Anonymisation</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </enabled>
+                        <successmessage translate="label">
+                            <label>Success message</label>
+                            <comment>The message shown to customers on the frontend after deleting their account. (leave blank for default)</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </successmessage>
+                        <cms_page translate="label">
+                            <label>Information Page</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_cms_page</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </cms_page>
+                        <gtm_container_id translate="label">
+                            <label>Google Tag Manager Container ID</label>
+                            <comment>By migrating ALL your third party JS including Beacons, Pixel Tracking, you can adhere to the GDPR regulations as this will ONLY load this container and trigger 3rd party cookies once you have obtained 'express consent' from your visitor</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </gtm_container_id>
+                    </fields>
+                </configuration>
+                <support>
+                    <label>Support with GDPR</label>
+                    <comment><![CDATA[<p><b>This extension DOES NOT automatically ensure full compliance with GDPR.</b></p><p>If you require support with all aspects of GDPR you can sign-up to a hassle-free package via our legal partner <a href="https://goo.gl/QLh8qR">GDPR Privacy Policy</a></p><iframe width="560" height="315" src="https://www.youtube.com/embed/1mDT-x2XnEg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe><br><H3><a href="https://goo.gl/QLh8qR">Click here to find out more on the GDPR Privacy Policy Compliance Pack</a></h3>]]></comment>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                </support>
+            </groups>
+        </gaiterjones_gdpr>
+    </sections>
+</config>

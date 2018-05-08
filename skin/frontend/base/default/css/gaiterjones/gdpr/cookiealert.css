@@ -1,0 +1,7 @@
+.cookiealert{background: #333; color: #fff; padding: 5px 0; font: 12px/18px Arial, Helvetica, sans-serif;}
+.cookiealert .message{max-width: 960px; margin: 0 auto;}
+.cookiealert .message span.cookie-title{display: block; color: #fff; font-size: 16px; font-weight: bold; margin: 0.4em 0 0;}
+.cookiealert .message a{color: #f90; text-decoration: underline;}
+.cookiealert .message a:hover{text-decoration: none;}
+.cookiealert .message .close a{font-size: 16px; text-decoration: none; font-weight: bold;}
+.cookiealert .message .close a:hover{text-decoration: underline;}
