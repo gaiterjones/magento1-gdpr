@@ -56,6 +56,15 @@
                             <show_in_website>0</show_in_website>
                             <show_in_store>0</show_in_store>
                         </debugmode>
+                        <cookiepolicyskin translate="label">
+                            <label>Skin</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>150</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>gaiterjones_gdpr/config_skin</source_model>
+                        </cookiepolicyskin>
                     </fields>
                 </configuration>
                 <content translate="label" module="gaiterjones_gdpr">

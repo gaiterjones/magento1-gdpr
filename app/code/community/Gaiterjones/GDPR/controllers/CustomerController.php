@@ -16,6 +16,7 @@ class Gaiterjones_GDPR_CustomerController extends Mage_Core_Controller_Front_Act
     }
 
     public function deleteaccountAction() {
+
         if (!Mage::helper('gaiterjones_gdpr')->isEnabled()) {
             return;
         }
@@ -42,8 +43,13 @@ class Gaiterjones_GDPR_CustomerController extends Mage_Core_Controller_Front_Act
             Mage::getSingleton('core/session')->addSuccess($successMessage);
             return;
         }
-        
-        Mage::getSingleton('core/session')->addSuccess('Your account has been successfully deleted, and all order details have been anonymised.');
+
+        if (Mage::helper('gaiterjones_gdpr')->debugMode()) {
+            Mage::getSingleton('core/session')->addSuccess('DEBUG MODE - account deletion testing!');
+        } else {
+            Mage::getSingleton('core/session')->addSuccess('Your account has been successfully deleted, and all order details have been anonymised.');
+
+        }
         return;
     }
 }

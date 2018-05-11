@@ -3,7 +3,9 @@
 if(Mage::getStoreConfig('gaiterjones_gdpr/options/enabled'))
 {
 ?>
-<div id="gdprcookiealert" class="gdpr-bar gdpr-dark-clean gdpr-top" style="display: none;">
+<div id="gdprcookiealert"
+class="gdpr-bar <?php echo $_helper->getSkin(); ?> gdpr-top"
+style="display: none;">
 	<div class="gdpr-message">
 		<span class="gdpr-title"><?php echo ($_helper->getShow() == 'default') ? $this->__("Cookie Policy") : $_helper->getCustomTitleText(); ?></span>
 		<p>

@@ -53,4 +53,9 @@ class Gaiterjones_GDPR_Helper_Data extends Mage_Core_Helper_Abstract
     {
         return Mage::getStoreConfig('gaiterjones_gdpr/content/custom_decline');
     }
+
+    public function getSkin()
+    {
+        return Mage::getStoreConfig('gaiterjones_gdpr/configuration/cookiepolicyskin');
+    }
 }
