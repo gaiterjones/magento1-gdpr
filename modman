@@ -1,11 +1,11 @@
-app/code/community/Gaiterjones/GDPR     app/code/community/Gaiterjones/GDPR
+app/code/community/Gaiterjones/GDPR/*     app/code/community/Gaiterjones/GDPR
 app/etc/modules/Gaiterjones_GDPR.xml	app/etc/modules/Gaiterjones_GDPR.xml
 app/design/frontend/base/default/layout/gaiterjones/gdpr.xml    app/design/frontend/base/default/layout/gaiterjones/gdpr.xml
-app/design/frontend/base/default/template/gaiterjones/gdpr    app/design/frontend/base/default/template/gaiterjones/gdpr
-app/locale/en_GB/template/email/gaiterjones/gdpr    app/locale/en_GB/template/email/gaiterjones/gdpr
-app/locale/en_US/template/email/gaiterjones/gdpr    app/locale/en_US/template/email/gaiterjones/gdpr
-app/locale/de_DE/template/email/gaiterjones/gdpr    app/locale/de_DE/template/email/gaiterjones/gdpr
+app/design/frontend/base/default/template/gaiterjones/gdpr/*    app/design/frontend/base/default/template/gaiterjones/gdpr
+app/locale/en_GB/template/email/gaiterjones/gdpr/*    app/locale/en_GB/template/email/gaiterjones/gdpr
+app/locale/en_US/template/email/gaiterjones/gdpr/*    app/locale/en_US/template/email/gaiterjones/gdpr
+app/locale/de_DE/template/email/gaiterjones/gdpr/*    app/locale/de_DE/template/email/gaiterjones/gdpr
 app/locale/en_GB/Gaiterjones_GDPR.csv    app/locale/en_GB/Gaiterjones_GDPR.csv
 app/locale/en_US/Gaiterjones_GDPR.csv    app/locale/en_US/Gaiterjones_GDPR.csv
 app/locale/de_DE/Gaiterjones_GDPR.csv    app/locale/de_DE/Gaiterjones_GDPR.csv
-skin/frontend/base/default/css/gaiterjones/gdpr    skin/frontend/base/default/css/gaiterjones/gdpr
+skin/frontend/base/default/css/gaiterjones/gdpr/*    skin/frontend/base/default/css/gaiterjones/gdpr
