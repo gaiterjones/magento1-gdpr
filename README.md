@@ -1,12 +1,16 @@
 ## Magento1 GDPR
 
-### Magento module
+### Magento GDPR compliance module
 
+Adapted from the Zero1 module - https://marketplace.magento.com/zero1-zero1-gdpr.html
 
 
 ### Synopsis
 
-
+Module to implement GDPR compliance in Magento 1.x specifically  
+	Cookie Consent Toolbar  
+	Customer Data Deletion/Anonymisation
+	Google Tag Manger for third party tracking   
 
 ### Version
 ***
@@ -24,9 +28,13 @@ To install the extension, copy the extension app folder to your magento store ap
 
 ### Configuration
 
+![Configuration](http://blog.gaiterjones.com/wp-content/uploads/2018/05/gdpr_module_1.jpg)
 
+See http://blog.gaiterjones.com/preparing-magento-for-the-general-data-protection-regulation-gdpr/
 
+### Disclaimer
 
+The information presented here is a summary of my own personal findings and thoughts on how to improve Magento 1 GDPR compliance and no guarantee whatsoever is provided that the information presented here will ensure GDPR compliance!
 
 ## License
 
