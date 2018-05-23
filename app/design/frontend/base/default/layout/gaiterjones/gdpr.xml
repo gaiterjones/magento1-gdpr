@@ -2,7 +2,7 @@
 <layout version="0.1.0">
     <customer_account>
         <reference name="customer_account_navigation">
-            <action method="addLink" ifconfig="gaiterjones_gdpr/configuration/gdprenabled">
+            <action method="addLink" ifconfig="gaiterjones_gdpr/configuration/enabled">
                 <name>delete</name>
                 <path>gaiterjones_gdpr/customer/deleteconfirmation</path>
                 <label>Delete Account</label>
